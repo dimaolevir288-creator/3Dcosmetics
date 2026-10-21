@@ -1,0 +1,43 @@
+{
+  "credit": "3dcosmetics - base hat geometry",
+  "texture_size": [32, 32],
+  "textures": {
+    "0": "3dcosmetics:item/hat",
+    "particle": "3dcosmetics:item/hat"
+  },
+  "elements": [
+    {
+      "name": "brim",
+      "from": [-5, 31, -5],
+      "to": [5, 32, 5],
+      "faces": {
+        "north": {"uv": [2, 2, 12, 3], "texture": "#0"},
+        "east": {"uv": [7, 2, 17, 3], "texture": "#0"},
+        "south": {"uv": [12, 2, 22, 3], "texture": "#0"},
+        "west": {"uv": [17, 2, 27, 3], "texture": "#0"},
+        "up": {"uv": [2, 2, 12, 12], "texture": "#0"},
+        "down": {"uv": [12, 2, 22, 12], "texture": "#0"}
+      }
+    },
+    {
+      "name": "crown",
+      "from": [-4, 32, -4],
+      "to": [4, 37, 4],
+      "faces": {
+        "north": {"uv": [8, 8, 16, 13], "texture": "#0"},
+        "east": {"uv": [0, 8, 8, 13], "texture": "#0"},
+        "south": {"uv": [16, 8, 24, 13], "texture": "#0"},
+        "west": {"uv": [24, 8, 32, 13], "texture": "#0"},
+        "up": {"uv": [8, 0, 16, 8], "texture": "#0"},
+        "down": {"uv": [16, 0, 24, 8], "texture": "#0"}
+      }
+    }
+  ],
+  "display": {
+    "fixed": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    }
+  }
+}

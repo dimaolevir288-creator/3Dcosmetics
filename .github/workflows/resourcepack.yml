@@ -1,0 +1,61 @@
+name: Resource Pack
+
+# Собирает ресурспак из src/main/resources/resourcepack и публикует его
+# в GitHub Releases. Токен здесь не нужен: Actions выдаёт себе
+# временный GITHUB_TOKEN с правом записи в этот же репозиторий.
+#
+# Ссылка для config.yml (постоянная, не меняется между релизами):
+#   https://github.com/USER/REPO/releases/latest/download/3dcosmetics.zip
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'src/main/resources/resourcepack/**'
+      - '.github/workflows/resourcepack.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate pack
+        run: |
+          set -e
+          ROOT="src/main/resources/resourcepack"
+          if [ ! -f "$ROOT/pack.mcmeta" ]; then
+            echo "::error::pack.mcmeta не найден в $ROOT"
+            exit 1
+          fi
+          echo "Содержимое пака:"
+          find "$ROOT" -type f | sed "s|$ROOT/||" | sort
+
+      - name: Build zip
+        run: |
+          set -e
+          ROOT="src/main/resources/resourcepack"
+          cd "$ROOT"
+          # -X убирает лишние атрибуты файлов: одинаковый ввод даёт
+          # одинаковый архив, а значит и стабильный SHA-1.
+          zip -r -X "$GITHUB_WORKSPACE/3dcosmetics.zip" . -x '.*' -x '__MACOSX/*'
+          cd "$GITHUB_WORKSPACE"
+          ls -l 3dcosmetics.zip
+          sha1sum 3dcosmetics.zip
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          # Тег уникален для каждого запуска, но latest всегда указывает
+          # на последний релиз — ссылка из config.yml остаётся рабочей.
+          tag_name: pack-${{ github.run_number }}
+          name: Resource pack ${{ github.run_number }}
+          body: |
+            Автоматическая сборка ресурспака 3DCosmetics.
+            Коммит: ${{ github.sha }}
+          files: 3dcosmetics.zip
+          make_latest: true

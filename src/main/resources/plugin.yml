@@ -1,0 +1,33 @@
+name: 3DCosmetics
+version: '${version}'
+main: ru.hat1.cosmetics.ThreeDCosmeticsPlugin
+api-version: '1.21.11'
+author: hat1
+description: 3D cosmetics rendered with ItemDisplay entities - hats, capes, wings, body parts from Blockbench.
+
+depend: []
+softdepend:
+  - Vault
+  - LuckPerms
+
+commands:
+  cosmetics:
+    description: Open the cosmetics menu
+    usage: /cosmetics [give|reload|take|import]
+    aliases:
+      - cos
+      - cosmetic
+      - hat
+      - hats
+      - 3dcos
+
+permissions:
+  cosmetics.use:
+    description: Allows opening the cosmetics menu
+    default: true
+  cosmetics.admin:
+    description: Grants admin subcommands (give/take/reload/import)
+    default: op
+  cosmetics.trial:
+    description: Allows trying on cosmetics for free before buying
+    default: true

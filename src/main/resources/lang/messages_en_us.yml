@@ -1,0 +1,65 @@
+# ==========================================================
+#  3DCosmetics — English localization (en_us)
+#
+#  Loaded automatically when config.yml contains:
+#    language: en_us
+#
+#  Messages from config.yml always win over this file.
+#
+#  Colour codes: &a &c &e ... and HEX: &#RRGGBB
+# ==========================================================
+
+messages:
+  prefix: "&8[&bCosmetics&8] &r"
+
+  # Common
+  no-permission: "&cYou do not have permission to do that."
+  no-economy: "&cEconomy is unavailable. Please contact an administrator."
+  reloaded: "&aConfiguration reloaded."
+  unknown-cosmetic: "&cCosmetic &f%id%&c was not found."
+  player-not-found: "&cPlayer &f%player%&c was not found."
+
+  # Purchasing
+  bought: "&aYou bought &f%cosmetic%&a for &e%price%&a."
+  not-enough-money: "&cNot enough money. Need &e%price%&c, you have &e%balance%&c."
+  not-for-sale: "&cThis cosmetic cannot be bought. It is granted by staff."
+
+  # Equipping
+  equipped: "&aYou equipped &f%cosmetic%&a."
+  unequipped: "&aYou removed &f%cosmetic%&a."
+  already-equipped: "&eThat cosmetic is already equipped."
+  nothing-equipped: "&eYou have nothing equipped."
+  not-owned: "&cYou do not own this cosmetic."
+  all-unequipped: "&aAll cosmetics removed. Items taken off: &f%count%&a."
+  unequipped-many: "&aRemoved: &f%cosmetic%&a (total: &f%count%&a)."
+
+  # Administration
+  granted: "&aGranted &f%cosmetic%&a to &f%player%&a."
+  granted-target: "&aYou were granted &f%cosmetic%&a."
+  revoked: "&aRemoved &f%cosmetic%&a from &f%player%&a."
+  revoked-target: "&cYour cosmetic &f%cosmetic%&c was taken away."
+
+  # Usage
+  usage-give: "&eUsage: &f/cosmetics give <player> <id>"
+  usage-take: "&eUsage: &f/cosmetics take <player> <id>"
+
+  # Resource pack
+  resource-pack-required: "&eThe resource pack is required. Accept it to play."
+
+  # Blockbench import
+  import-started: "&eImporting Blockbench models from &f%folder%&e..."
+  import-empty: "&eNo .bbmodel files found. Put them into &f%folder%&e and run /cosmetics import again."
+  import-done: "&aImport finished: &f%imported%&a ok, &c%failed%&c failed.\n%details%"
+  import-failed: "&cImport failed. See the server console for details."
+
+  # Trial
+  trial-started: "&eTrying on &f%cosmetic%&e for &f%seconds%&e seconds."
+  trial-finished: "&eTrial of &f%cosmetic%&e is over. Buy it for &6%price%&e."
+  trial-cancelled: "&eTrial cancelled."
+  trial-already-used: "&cYou already tried &f%cosmetic%&c once. A trial works only once per item."
+  trial-disabled: "&cTrials are disabled on this server."
+  trial-not-allowed: "&c&f%cosmetic%&c cannot be trialed."
+  usage-trial: "&eUsage: &f/cosmetics trial <id>"
+
+  # Purchase (extra)
+  already-owned: "&eYou already own &f%cosmetic%&e."

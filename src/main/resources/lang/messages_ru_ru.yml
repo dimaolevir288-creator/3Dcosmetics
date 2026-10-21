@@ -1,0 +1,66 @@
+# ==========================================================
+#  3DCosmetics — русская локализация (ru_ru)
+#
+#  Этот файл загружается автоматически, если в config.yml
+#  указано: language: ru_ru
+#
+#  Сообщения из config.yml имеют приоритет над этим файлом,
+#  поэтому переопределить текст можно в любом из них.
+#
+#  Коды цвета: &a &c &e ... и HEX: &#RRGGBB
+# ==========================================================
+
+messages:
+  prefix: "&8[&bКосметика&8] &r"
+
+  # Общие
+  no-permission: "&cУ вас нет прав на это действие."
+  no-economy: "&cЭкономика недоступна. Обратитесь к администрации."
+  reloaded: "&aКонфигурация перезагружена."
+  unknown-cosmetic: "&cКосметика &f%id%&c не найдена."
+  player-not-found: "&cИгрок &f%player%&c не найден."
+
+  # Покупка
+  bought: "&aВы купили &f%cosmetic%&a за &e%price%&a."
+  not-enough-money: "&cНедостаточно средств. Нужно &e%price%&c, у вас &e%balance%&c."
+  not-for-sale: "&cЭту косметику нельзя купить. Её выдаёт администрация."
+
+  # Надевание и снятие
+  equipped: "&aВы надели &f%cosmetic%&a."
+  unequipped: "&aВы сняли &f%cosmetic%&a."
+  already-equipped: "&eЭта косметика уже надета."
+  nothing-equipped: "&eУ вас ничего не надето."
+  not-owned: "&cУ вас нет этой косметики."
+  all-unequipped: "&aСнята вся косметика. Предметов снято: &f%count%&a."
+  unequipped-many: "&aСнята косметика: &f%cosmetic%&a (всего: &f%count%&a)."
+
+  # Выдача администратором
+  granted: "&aВыдана косметика &f%cosmetic%&a игроку &f%player%&a."
+  granted-target: "&aВам выдана косметика &f%cosmetic%&a."
+  revoked: "&aКосметика &f%cosmetic%&a снята с игрока &f%player%&a."
+  revoked-target: "&cУ вас забрали косметику &f%cosmetic%&c."
+
+  # Подсказки по использованию
+  usage-give: "&eИспользование: &f/cosmetics give <игрок> <id>"
+  usage-take: "&eИспользование: &f/cosmetics take <игрок> <id>"
+
+  # Ресурспак
+  resource-pack-required: "&eЗагрузка ресурспака обязательна. Примите его, чтобы играть."
+
+  # Импорт моделей Blockbench
+  import-started: "&eИмпорт моделей Blockbench из папки &f%folder%&e..."
+  import-empty: "&eФайлы .bbmodel не найдены. Положите их в папку &f%folder%&e и повторите /cosmetics import."
+  import-done: "&aИмпорт завершён: &f%imported%&a успешно, &c%failed%&c с ошибками.\n%details%"
+  import-failed: "&cИмпорт не удался. Подробности в консоли сервера."
+
+  # Примерка
+  trial-started: "&eПримерка &f%cosmetic%&e началась. Осталось &f%seconds%&e сек."
+  trial-finished: "&eПримерка &f%cosmetic%&e закончилась. Купить: &6%price%&e."
+  trial-cancelled: "&eПримерка отменена."
+  trial-already-used: "&cПримерка &f%cosmetic%&c уже использована. Этот предмет можно примерить только раз."
+  trial-disabled: "&cПримерка отключена на этом сервере."
+  trial-not-allowed: "&cКосметику &f%cosmetic%&c нельзя примерить."
+  usage-trial: "&eИспользование: &f/cosmetics trial <id>"
+
+  # Покупка (дополнительно)
+  already-owned: "&eКосметика &f%cosmetic%&e уже куплена."

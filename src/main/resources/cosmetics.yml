@@ -1,0 +1,224 @@
+# ==========================================================
+#  3DCosmetics — косметика (русская локализация)
+#
+#  Каждая запись имеет уникальный id и относится к категории
+#  (раздел меню) и к слоту (часть тела).
+#
+#  СЛОТЫ (поле slot):
+#    head — голова   (шляпы, маски, рога)
+#    body — тело     (плащи, крылья, накидки, рюкзаки)
+#    arms — руки     (наручи, перчатки)
+#    legs — ноги     (сапоги, наколенники)
+#
+#  В одном слоте можно надеть только одну вещь, но разные слоты
+#  складываются: шляпа + плащ + наручи + сапоги одновременно.
+#
+#  Косметика НЕ занимает слоты брони и инвентаря — она рисуется
+#  сущностями ItemDisplay, поэтому шляпа надевается поверх шлема.
+#
+#  Поля:
+#    category      — идентификатор категории (раздел меню)
+#    slot          — часть тела: head | body | arms | legs
+#                    (если не указан — выводится из anchor)
+#    display-name  — название в меню (& коды цвета)
+#    description   — строки описания
+#    icon          — материал иконки в меню
+#    price         — цена в валюте Vault (0 = бесплатно, -1 = не продаётся)
+#                    если не указана — берётся prices.<слот>.default
+#    trial         — можно ли примерить бесплатно (по умолчанию true)
+#    permission    — нода LuckPerms для доступа.
+#                    Плейсхолдеры: %player% (ник в нижнем регистре), %uuid%
+#    model         — описание модели ItemDisplay
+#      material         — материал предмета модели
+#      item-model       — ключ item-model (1.21.4+), например "3dcosmetics:item/hat_top"
+#      custom-model-data — CustomModelData для модели из ресурспака
+#      scale            — масштаб модели
+#      translation      — смещение от якоря в блоках [вбок, вверх, назад]
+#      rotation         — поворот в градусах (yaw, pitch, roll)
+#      anchor           — head | back | chest | feet | left_arm | right_arm
+#                         left_leg | right_leg
+#      billboard        — FIXED | VERTICAL | HORIZONTAL | CENTER
+# ==========================================================
+
+config-version: 1
+
+categories:
+  hats:
+    display-name: "&fШляпы"
+    icon: LEATHER_HELMET
+    slot: 11
+  capes:
+    display-name: "&cПлащи"
+    icon: ELYTRA
+    slot: 13
+  wings:
+    display-name: "&eКрылья"
+    icon: FEATHER
+    slot: 15
+  armor:
+    display-name: "&bДоспехи"
+    icon: IRON_CHESTPLATE
+    slot: 21
+  boots:
+    display-name: "&aОбувь"
+    icon: LEATHER_BOOTS
+    slot: 23
+
+# ==========================================================
+#  ЦЕНЫ ПО СЛОТАМ
+#
+#  default    — цена для косметики без своего поля price.
+#  multiplier — множитель для всех предметов этого слота.
+#
+#  Итог = (price косметики или default слота) * multiplier.
+# ==========================================================
+prices:
+  head:
+    default: 2500.0
+    multiplier: 1.0
+  body:
+    default: 4000.0
+    multiplier: 1.0
+  arms:
+    default: 1800.0
+    multiplier: 1.0
+  legs:
+    default: 1500.0
+    multiplier: 1.0
+
+cosmetics:
+
+  top_hat:
+    category: hats
+    slot: head
+    display-name: "&fЦилиндр"
+    description:
+      - "&7Классический цилиндр."
+      - "&8Надевается на голову."
+    icon: LEATHER_HELMET
+    price: 2500.0
+    permission: "cosmetics.head.top_hat"
+    model:
+      material: PAPER
+      item-model: ""
+      custom-model-data: 1001
+      scale: 0.9
+      translation: [0.0, 0.34, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      anchor: head
+      billboard: FIXED
+
+  crown:
+    category: hats
+    slot: head
+    display-name: "&6Корона"
+    description:
+      - "&7Для настоящих правителей."
+      - "&8Сверкает золотом."
+    icon: GOLDEN_HELMET
+    price: 7500.0
+    permission: "cosmetics.head.crown"
+    model:
+      material: PAPER
+      item-model: ""
+      custom-model-data: 1002
+      scale: 0.85
+      translation: [0.0, 0.32, 0.0]
+      rotation: [0.0, 0.0, 0.0]
+      anchor: head
+      billboard: FIXED
+
+  red_cape:
+    category: capes
+    slot: body
+    display-name: "&cАлый плащ"
+    description:
+      - "&7Развевается на ветру."
+      - "&8Закрепляется за спиной."
+    icon: RED_BANNER
+    price: 4000.0
+    permission: "cosmetics.body.red_cape"
+    model:
+      material: PAPER
+      item-model: ""
+      custom-model-data: 2001
+      scale: 1.0
+      translation: [0.0, 1.05, -0.16]
+      rotation: [0.0, 0.0, 0.0]
+      anchor: back
+      billboard: FIXED
+
+  angel_wings:
+    category: wings
+    slot: body
+    display-name: "&eКрылья ангела"
+    description:
+      - "&7Светлые и пушистые."
+      - "&8Символ добродетели."
+    icon: FEATHER
+    price: 12000.0
+    permission: "cosmetics.body.angel_wings"
+    model:
+      material: PAPER
+      item-model: ""
+      custom-model-data: 3001
+      scale: 1.2
+      translation: [0.0, 1.15, -0.12]
+      rotation: [0.0, 0.0, 0.0]
+      anchor: back
+      billboard: FIXED
+
+  demon_wings:
+    category: wings
+    slot: body
+    display-name: "&4Крылья демона"
+    description:
+      - "&7Тёмные и острые."
+      - "&8Внушают уважение."
+    icon: PHANTOM_MEMBRANE
+    price: 15000.0
+    permission: "cosmetics.body.demon_wings"
+    model:
+      material: PAPER
+      item-model: ""
+      custom-model-data: 3002
+      scale: 1.2
+      translation: [0.0, 1.15, -0.12]
+      rotation: [0.0, 0.0, 0.0]
+      anchor: back
+      billboard: FIXED
+
+  # Пример косметики на руки: наручи. Цена не указана —
+  # возьмётся prices.arms.default = 1800.
+  iron_bracers:
+    category: armor
+    slot: arms
+    display-name: "&7Железные наручи"
+    description:
+      - "&7Крепкая защита предплечий."
+    icon: IRON_INGOT
+    permission: "cosmetics.arms.iron_bracers"
+    model:
+      material: PAPER
+      custom-model-data: 4001
+      scale: 0.6
+      translation: [0.0, -0.15, 0.0]
+      anchor: right_arm
+      billboard: FIXED
+
+  # Пример косметики на ноги: сапоги.
+  leather_boots:
+    category: boots
+    slot: legs
+    display-name: "&6Кожаные сапоги"
+    description:
+      - "&7Мягкие и удобные."
+    icon: LEATHER_BOOTS
+    permission: "cosmetics.legs.leather_boots"
+    model:
+      material: PAPER
+      custom-model-data: 5001
+      scale: 0.6
+      translation: [0.0, 0.0, 0.0]
+      anchor: right_leg
+      billboard: FIXED
